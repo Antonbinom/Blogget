@@ -5,8 +5,8 @@ import Title from './Title';
 import Search from './Search';
 import Auth from './Auth';
 
-export const Header = () => {
-  return (
+export const Header = () =>
+  (
     <header className={style.header}>
       <Layout>
         <div className={style.gridContainer}>
@@ -18,4 +18,3 @@ export const Header = () => {
       </Layout>
     </header>
   );
-};

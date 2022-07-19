@@ -1,7 +1,7 @@
 import style from './Search.module.css';
 
-export const Search = props => {
-  return (
+export const Search = props =>
+  (
     <form className={style.form}>
       <input className={style.search} type='search' />
       <button className={style.button}>
@@ -23,4 +23,3 @@ export const Search = props => {
       </button>
     </form>
   );
-};
