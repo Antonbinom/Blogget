@@ -1,8 +1,7 @@
-import React from 'react';
 import style from './Auth.module.css';
 import PropTypes from 'prop-types';
 
-export const Auth = ({auth}) =>
+export const Auth = ({auth}) => {
   (
     <button className={style.button}>
       {auth ? (
@@ -28,6 +27,7 @@ export const Auth = ({auth}) =>
   );
 
 
-Auth.propTypes = {
-  auth: PropTypes.bool,
+  Auth.propTypes = {
+    auth: PropTypes.bool,
+  };
 };
