@@ -5,6 +5,8 @@ import Content from './Content';
 import Rating from './Rating';
 import DateTime from './DateTime';
 import Delete from './Delete';
+import formatDate from '../../../../utils/formatDate';
+
 
 export const Post = ({postData}) => {
 	const {title, author, ups, date} = postData;
@@ -13,7 +15,7 @@ export const Post = ({postData}) => {
 			<Image alt={title} />
 			<Content title={title} author={author} />
 			<Rating ups={ups} />
-			<DateTime date={date} />
+			<DateTime date={formatDate(date)} />
 			<Delete />
 		</li>
 	);
