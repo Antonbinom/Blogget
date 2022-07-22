@@ -1,6 +1,6 @@
 import style from './Delete.module.css';
 
-export const Delete = props => (<button className={style.delete}>
+export const Delete = () => (<button className={style.delete}>
 	<svg
 		width='24'
 		height='24'

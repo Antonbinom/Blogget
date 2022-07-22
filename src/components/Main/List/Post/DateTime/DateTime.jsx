@@ -1,10 +1,8 @@
 import style from './DateTime.module.css';
 import PropTypes from 'prop-types';
-import formatDate from '../../../../../utils/formatDate';
-
-export const DateTime = props =>
+export const DateTime = ({date}) =>
 (
-	<time className={style.date} dateTime={props.date}>{formatDate(props.date)}</time>
+	<time className={style.date} dateTime={date}>{date}</time>
 );
 
 DateTime.propTypes = {
