@@ -51,9 +51,9 @@ export const Tabs = () => {
 			{(isDropDownOpen || !isDropDown) &&
 				<ul className={style.list} onClick={() => setIsDropDownOpen(false)}>
 					{LIST.map(({value, id, Icon}) => (
-						<li className={style.item} key={id}>
-							<Text As='button' bold className={style.btn} onClick={() => setMenuItem(value)}>{value} {Icon && <Icon width={25} height={25} />}</Text>
-						</li>
+						<Text As='li' className={style.item} key={id}>
+							<button bold className={style.btn} onClick={() => setMenuItem(value)}>{value} {Icon && <Icon width={25} height={25} />}</button>
+						</Text>
 					))}
 				</ul>
 			}
