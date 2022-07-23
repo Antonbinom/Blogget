@@ -2,7 +2,7 @@
   grid-area: content;
   padding-top: 10px;
   padding-right: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .linkPost {
@@ -10,7 +10,8 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   display: -webkit-box;
-  margin-bottom: 8px;
+	font-weight: 700;
+  margin-bottom: 10px;
   transition: color 0.36s ease-in-out;
 }
 
@@ -23,7 +24,13 @@
 }
 
   .linkPost {
-    font-size: 26px;
+		overflow: hidden;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		display: -webkit-box;
+		font-weight: 700;
+		margin-bottom: 10px;
+		transition: color 0.36s ease-in-out;
   }
   .linkPost:hover {
     color: #cc6633;
@@ -55,8 +62,8 @@
   }
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .linkPost {
     font-size: 32px;
   }
-}
+} */

@@ -1,7 +1,7 @@
 import style from './Logo.module.css';
 // import logo from './img/logo.svg';
 
-export const Logo = props =>
+export const Logo = () =>
 (
 	<a className={style.link} href='/'>
 		<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
