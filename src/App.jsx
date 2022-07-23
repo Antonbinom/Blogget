@@ -1,13 +1,16 @@
-import React from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
+import {useToken} from './hooks/useToken';
+
 function App() {
-  return (
-    <>
-      <Header />
-      <Main />
-    </>
-  );
+	const [token] = useToken('');
+
+	return (
+		<>
+			<Header token={token} />
+			<Main />
+		</>
+	);
 }
 
 export default App;
