@@ -22,12 +22,14 @@ export const Tabs = () => {
 	const [isDropDown, setIsDropDown] = useState(true);
 	const [menuItem, setMenuItem] = useState('Главная');
 
+	// при ресайзе, если ширина меньше 768 меняем стейт
 	const handleResize = () => {
 		if (document.documentElement.clientWidth < 768) {
 			setIsDropDown(true);
 		} else setIsDropDown(false);
 	};
 
+	// сокращаем количество всплытий оброботчика событий при ресайзе
 	useEffect(() => {
 		const debounceResize = debounceRaf(handleResize);
 		debounceResize();
@@ -41,6 +43,8 @@ export const Tabs = () => {
 	return (
 		<div className={style.container}>
 			{
+				// если в стейте хранится true, отрисовываем select menu
+				// при клике на кнопку select menu меняем стейт на противоположный
 				(isDropDown && <div className={style.wrapperBtn}>
 					<button className={style.btn} onClick={() => setIsDropDownOpen(!isDropDownOpen)}>
 						{menuItem}

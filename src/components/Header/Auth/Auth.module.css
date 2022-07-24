@@ -11,20 +11,22 @@
 
 .container {
   position: relative;
-  display: block;
-  text-align: center;
+  display: flex;
+	justify-content: center;
+	width: 40px;
 }
 
 .logout {
   position: absolute;
   top: 100%;
   right: 0;
+	margin-top: 5px;
   background-color: var(--orange);
   border: 0;
   color: var(--white);
-  padding: 4px;
+  padding: 4px 2px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
 }
 
@@ -38,6 +40,7 @@
   display: block;
   width: 30px;
   height: 30px;
+	margin: 0 auto;
   outline: 2px solid transparent;
   border-radius: 50%;
   outline-offset: 2px;
@@ -64,9 +67,21 @@
 
 
 @media (min-width: 768px) {
+	.container {
+		width: 50px;
+	}
   .btn {
     border-radius: 15px;
     width: 50px;
     height: 50px;
   }
+	.authLink {
+		width: 50px;
+		height: 50px;
+	}
+	.logout {
+	margin-top: 5px;
+  padding: 4px 2px;
+  font-size: 14px;
+}
 }

@@ -5,6 +5,12 @@ export const useToken = (state) => {
 	// состояние
 	const [token, setToken] = useState(state);
 
+	// удяляем токен из LocalStorage
+	const delToken = () => {
+		localStorage.removeItem('bearer');
+		history.pushState(null, null, '/');
+	};
+
 	useEffect(() => {
 		// условие - если в адресной строке имеется /auth, то вытаскиваем токен
 		if (location.pathname.includes('/auth')) {
@@ -24,5 +30,5 @@ export const useToken = (state) => {
 		}
 	}, [token]);
 
-	return [token]; // возвращяем токен
+	return [token, delToken]; // возвращяем токен и функцию удаления токена из LocalStorage
 };
