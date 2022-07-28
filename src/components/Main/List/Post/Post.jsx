@@ -6,16 +6,25 @@ import Rating from './Rating';
 import DateTime from './DateTime';
 import Delete from './Delete';
 import formatDate from '../../../../utils/formatDate';
-
+import nophoto from './img/notphoto.jpg';
 
 export const Post = ({postData}) => {
-	const {title, author, ups, date} = postData;
+	const {
+		title,
+		author,
+		ups,
+		created,
+		thumbnail,
+		thumbnail_height: thumbnailHeight,
+		thumbnail_width: thumbnailWidth,
+	} = postData;
+
 	return (
 		<li className={style.post}>
-			<Image alt={title} />
+			<Image alt={title} src={(thumbnailHeight && thumbnailWidth) ? thumbnail : nophoto} />
 			<Content title={title} author={author} />
 			<Rating ups={ups} />
-			<DateTime date={formatDate(date)} />
+			<DateTime date={formatDate(created)} />
 			<Delete />
 		</li>
 	);

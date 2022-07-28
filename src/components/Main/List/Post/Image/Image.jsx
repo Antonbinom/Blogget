@@ -1,11 +1,14 @@
 import style from './Image.module.css';
 import PropTypes from 'prop-types';
-import notphoto from '../img/notphoto.jpg';
 
-export const Image = ({alt}) => (
-	<img className={style.img} src={notphoto} alt={alt} />
+export const Image = ({alt, src}) => (
+	<img className={style.img} src={src} alt={alt} />
 );
 
 Image.propTypes = {
 	alt: PropTypes.string,
+	src: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.func,
+	]),
 };

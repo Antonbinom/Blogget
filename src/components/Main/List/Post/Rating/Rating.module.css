@@ -31,17 +31,8 @@
   background-image: url('../img/down.svg');
 }
 
-@media (min-width: 580px) {
-  .post {
-    grid-template-columns: 150px 1fr;
-    gap: 10px;
-    grid-template-rows: 1fr min-content;
-    grid-template-areas:
-      'img content content'
-      'img rating data';
-    min-height: 150px;
-  }
 
+@media (min-width: 580px) {
   .rating {
     padding-top: 0;
     padding-bottom: 10px;
