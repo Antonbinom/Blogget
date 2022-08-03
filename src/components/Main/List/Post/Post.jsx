@@ -14,21 +14,29 @@ export const Post = ({postData}) => {
 		author,
 		ups,
 		created,
+		selftext: markdown,
 		thumbnail,
 		thumbnail_height: thumbnailHeight,
 		thumbnail_width: thumbnailWidth,
+		id,
 	} = postData;
-
 	return (
 		<li className={style.post}>
-			<Image alt={title} src={(thumbnailHeight && thumbnailWidth) ? thumbnail : nophoto} />
-			<Content title={title} author={author} />
+			<Image
+				alt={title}
+				src={(thumbnailHeight && thumbnailWidth) ? thumbnail : nophoto} />
+			<Content
+				title={title}
+				author={author}
+				markdown={markdown}
+				id={id} />
 			<Rating ups={ups} />
 			<DateTime date={formatDate(created)} />
 			<Delete />
 		</li>
 	);
 };
+
 Post.propTypes = {
 	postData: PropTypes.object,
 };
