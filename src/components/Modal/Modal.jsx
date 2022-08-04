@@ -33,7 +33,7 @@ export const Modal = ({closeModal, id}) => {
 			document.removeEventListener('keydown', handlePress);
 		};
 	}, []);
-
+	console.log('commentsData: ', commentsData);
 	return ReactDOM.createPortal(
 		<div className={style.overlay}
 			ref={overlayRef}>
