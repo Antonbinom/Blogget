@@ -1,8 +1,8 @@
 import {createStore} from 'redux';
 import {getToken, setToken} from '../api/token';
 
-const initialState = {
-	comment: 'Привет, Redux',
+const initianalState = {
+	comment: 'Привет Redux',
 	token: getToken(),
 };
 
@@ -12,12 +12,12 @@ const DELETE_TOKEN = 'DELETE_TOKEN';
 
 export const updateComment = comment => ({
 	type: UPDATE_COMMENT,
-	comment
+	comment,
 });
 
 export const updateToken = token => ({
 	type: UPDATE_TOKEN,
-	token
+	token,
 });
 
 export const deleteToken = token => ({
@@ -25,12 +25,12 @@ export const deleteToken = token => ({
 	token: '',
 });
 
-const rootReducer = (state = initialState, action) => {
+const rootReducer = (state = initianalState, action) => {
 	switch (action.type) {
 		case UPDATE_COMMENT:
 			return {
 				...state,
-				comment: action.comment
+				comment: action.comment,
 			};
 
 		case UPDATE_TOKEN:
