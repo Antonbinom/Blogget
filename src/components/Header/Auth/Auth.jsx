@@ -1,16 +1,17 @@
 import style from './Auth.module.css';
 import PropTypes from 'prop-types';
-import {useContext, useState} from 'react';
+import {useState} from 'react';
 import {ReactComponent as LoginIcon} from './img/login.svg';
 import {urlAuth} from '../../../api/auth';
 import {Text} from '../../../UI/Text';
-import {authContext} from '../../../context/authContext';
 import {useDispatch} from 'react-redux';
-import {deleteToken} from '../../../store';
+import {deleteToken} from '../../../store/tokenReducer';
+import {useAuth} from '../../../hooks/useAuth';
+import SynchLoader from 'react-spinners/SyncLoader';
 
 export const Auth = () => {
 	const dispatch = useDispatch();
-	const {auth, clearAuth} = useContext(authContext);
+	const [auth, loading, clearAuth] = useAuth();
 	const [showLogout, setShowLogout] = useState(false);
 
 
@@ -25,7 +26,11 @@ export const Auth = () => {
 
 	return (
 		<div className={style.container} >
-			{
+			{loading ?
+				(<SynchLoader
+					css={{display: 'block'}}
+					size={10}
+					color='#cc6633' />) :
 				auth.name ? (
 					<>
 						<button className={style.btn} onClick={() => {
