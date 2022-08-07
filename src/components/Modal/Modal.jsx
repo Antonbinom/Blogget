@@ -7,10 +7,11 @@ import Markdown from 'markdown-to-jsx';
 import {useCommentData} from '../../hooks/useCommentData';
 import {Comments} from './Comments/Comments';
 import {FormComment} from './FormComments/FormComments';
+import {Loader} from '../../UI/Loader/Loader';
 
 export const Modal = ({closeModal, id}) => {
 	const overlayRef = useRef(null);
-	const [commentsData] = useCommentData(id);
+	const [commentsData, status] = useCommentData(id);
 
 	const handleClick = e => {
 		const target = e.target;
@@ -33,44 +34,49 @@ export const Modal = ({closeModal, id}) => {
 			document.removeEventListener('keydown', handlePress);
 		};
 	}, []);
-	console.log('commentsData: ', commentsData);
+
 	return ReactDOM.createPortal(
 		<div className={style.overlay}
 			ref={overlayRef}>
-			{commentsData.length > 0 ?
-				<div className={style.modal}>
-					<h2 className={style.title}>{commentsData[0].title}</h2>
-					<div className={style.content}>
-						<Markdown options={{
-							overrides: {
-								a: {
-									props: {
-										target: '_blank'
+			<div className={style.modal}>
+				{status === 'loading' &&
+					<div className={style.loader}>
+						<Loader />
+						<h2 className={style.loaderTitle} >Загрузка... </h2>
+					</div>}
+				{status === 'error' && 'ошибка'}
+				{status === 'loaded' && (
+					<>
+						<h2 className={style.title}>{commentsData[0].title}</h2>
+						<div className={style.content}>
+							<Markdown options={{
+								overrides: {
+									a: {
+										props: {
+											target: '_blank'
+										}
 									}
 								}
-							}
-						}}>
-							{commentsData[0].selftext}
-						</Markdown>
-						<FormComment />
-						<Comments comments={commentsData[1]} />
-					</div>
-					<p className={style.author}>
-						<span>Author: </span>
-						{commentsData[0].author}
-					</p>
-					<button className={style.close} onClick={closeModal}>
-						<CloseIcon className={style.svg} />
-					</button>
-				</div> :
-				<div className={style.modal}>
-					<h2 className={style.load} >Загрузка... </h2>
-				</div>}
+							}}>
+								{commentsData[0].selftext}
+							</Markdown>
+							<FormComment />
+							<Comments comments={commentsData[1]} />
+						</div>
+						<p className={style.author}>
+							<span>Author: </span>
+							{commentsData[0].author}
+						</p>
+						<button className={style.close} onClick={closeModal}>
+							<CloseIcon className={style.svg} />
+						</button>
+					</>
+				)}
+			</div>
 		</div>,
 		document.getElementById('modal-root')
 	);
 };
-
 Modal.propTypes = {
 	id: PropTypes.string,
 	closeModal: PropTypes.func,

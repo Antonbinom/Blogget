@@ -50,6 +50,19 @@
 }
 .svg {pointer-events: none;}
 
+.loader {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.loaderTitle {
+	margin-top: 20px;
+	font-size: 32px;
+}
+
 @media (min-width: 768px) {
   .modal {
     padding: 30px;

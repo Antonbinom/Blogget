@@ -4,7 +4,6 @@ import {Text} from '../../../../../UI/Text';
 import {useState} from 'react';
 import Modal from '../../../../Modal';
 
-
 export const Content = ({title, author, id}) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 

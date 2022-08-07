@@ -7,7 +7,7 @@ import {Text} from '../../../UI/Text';
 import {useDispatch} from 'react-redux';
 import {deleteToken} from '../../../store/tokenReducer';
 import {useAuth} from '../../../hooks/useAuth';
-import SynchLoader from 'react-spinners/SyncLoader';
+import {Loader} from '../../../UI/Loader/Loader';
 
 export const Auth = () => {
 	const dispatch = useDispatch();
@@ -27,10 +27,7 @@ export const Auth = () => {
 	return (
 		<div className={style.container} >
 			{loading ?
-				(<SynchLoader
-					css={{display: 'block'}}
-					size={10}
-					color='#cc6633' />) :
+				(<Loader />) :
 				auth.name ? (
 					<>
 						<button className={style.btn} onClick={() => {

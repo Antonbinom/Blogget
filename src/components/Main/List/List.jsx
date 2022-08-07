@@ -1,16 +1,20 @@
 import style from './List.module.css';
 import Post from './Post';
-import {useContext} from 'react';
-import {postsContext} from '../../../context/postsContext';
+import {usePosts} from '../../../hooks/usePosts';
+import {Loader} from '../../../UI/Loader/Loader';
 
 export const List = () => {
-	const {posts} = useContext(postsContext);
+	const [posts] = usePosts();
 
 	return (
 		<ul className={style.list}>
-			{posts ? posts.map((post) => (
+			{posts.constructor === Array ? posts.map((post) => (
 				<Post key={post.data.id} postData={post.data} />
-			)) : null}
+			)) :
+				<div className={style.loader}>
+					<Loader />
+				</div>
+			}
 		</ul>
 	);
 };
