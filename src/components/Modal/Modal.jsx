@@ -8,21 +8,23 @@ import {useCommentData} from '../../hooks/useCommentData';
 import {Comments} from './Comments/Comments';
 import {FormComment} from './FormComments/FormComments';
 import {Loader} from '../../UI/Loader/Loader';
+import {useNavigate, useParams} from 'react-router-dom';
 
-export const Modal = ({closeModal, id}) => {
+export const Modal = () => {
+	const {id, page} = useParams();
 	const overlayRef = useRef(null);
 	const [commentsData, status] = useCommentData(id);
-
+	const navigate = useNavigate();
 	const handleClick = e => {
 		const target = e.target;
 		if (target === overlayRef.current) {
-			closeModal();
+			navigate(`/category/${page}`);
 		}
 	};
 
 	const handlePress = (e) => {
 		if (e.keyCode === 27) {
-			closeModal();
+			navigate(`/category/${page}`);
 		}
 	};
 
@@ -67,7 +69,9 @@ export const Modal = ({closeModal, id}) => {
 							<span>Author: </span>
 							{commentsData[0].author}
 						</p>
-						<button className={style.close} onClick={closeModal}>
+						<button className={style.close} onClick={() => {
+							navigate(`/category/${page}`);
+						}}>
 							<CloseIcon className={style.svg} />
 						</button>
 					</>

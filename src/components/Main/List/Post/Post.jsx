@@ -20,11 +20,14 @@ export const Post = ({postData}) => {
 		thumbnail_width: thumbnailWidth,
 		id,
 	} = postData;
+
 	return (
 		<li className={style.post}>
 			<Image
 				alt={title}
-				src={(thumbnailHeight && thumbnailWidth) ? thumbnail : nophoto} />
+				src={(thumbnailHeight && thumbnailWidth && (thumbnail.length > 10)) ?
+					thumbnail :
+					nophoto} />
 			<Content
 				title={title}
 				author={author}

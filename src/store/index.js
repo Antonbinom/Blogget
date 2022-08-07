@@ -11,9 +11,8 @@ export const rootReducer = combineReducers({
 	token: tokenReducer,
 	comment: commentReducer,
 	auth: authReducer,
-	post: postReducer,
+	posts: postReducer,
 	comments: commentsReducer,
 });
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(tokenMiddleware, thunk)));
-console.log('store: ', store);
