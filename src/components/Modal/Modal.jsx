@@ -13,7 +13,7 @@ import {useNavigate, useParams} from 'react-router-dom';
 export const Modal = () => {
 	const {id, page} = useParams();
 	const overlayRef = useRef(null);
-	const [commentsData, status] = useCommentData(id);
+	const [post, status, comments] = useCommentData(id);
 	const navigate = useNavigate();
 	const handleClick = e => {
 		const target = e.target;
@@ -49,7 +49,7 @@ export const Modal = () => {
 				{status === 'error' && 'ошибка'}
 				{status === 'loaded' && (
 					<>
-						<h2 className={style.title}>{commentsData[0].title}</h2>
+						<h2 className={style.title}>{post.title}</h2>
 						<div className={style.content}>
 							<Markdown options={{
 								overrides: {
@@ -60,14 +60,14 @@ export const Modal = () => {
 									}
 								}
 							}}>
-								{commentsData[0].selftext}
+								{post.selftext}
 							</Markdown>
 							<FormComment />
-							<Comments comments={commentsData[1]} />
+							<Comments comments={comments} />
 						</div>
 						<p className={style.author}>
 							<span>Author: </span>
-							{commentsData[0].author}
+							{post.author}
 						</p>
 						<button className={style.close} onClick={() => {
 							navigate(`/category/${page}`);
