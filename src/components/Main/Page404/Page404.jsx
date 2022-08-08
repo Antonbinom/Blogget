@@ -10,6 +10,7 @@ export const Page404 = () => (
 			size={28}
 			tsize={32}
 			bottom={20}
+			center
 		>
 			Ошибка 404!
 		</Text>
@@ -18,6 +19,7 @@ export const Page404 = () => (
 			tsize={22}
 			top={10}
 			bottom={20}
+			center
 		>
 			Такой страницы не существует!
 		</Text>
@@ -25,6 +27,7 @@ export const Page404 = () => (
 			size={22}
 			tsize={22}
 			top={10}
+			center
 		>
 			Возможно ошибка в адресной строке...
 		</Text>
