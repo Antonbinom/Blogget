@@ -99,6 +99,18 @@
   line-height: 16px;
 }
 
+.mb10 {
+	margin-bottom: 10px;
+}
+.mb20 {
+	margin-bottom: 20px;
+}
+.mt10 {
+	margin-top: 10px;
+}
+.mt20 {
+	margin-top: 20px;
+}
 @media (min-width: 768px) {
   .fst26 {
     font-size: 26px;

@@ -14,7 +14,6 @@ export const Auth = () => {
 	const [auth, loading, clearAuth] = useAuth();
 	const [showLogout, setShowLogout] = useState(false);
 
-
 	const getOut = () => {
 		setShowLogout(!showLogout);
 	};

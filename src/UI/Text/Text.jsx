@@ -11,6 +11,8 @@ export const Text = prop => {
 		dsize,
 		medium,
 		bold,
+		top,
+		bottom,
 		className,
 		children,
 		href,
@@ -25,6 +27,9 @@ export const Text = prop => {
 		{[style[`fs${size}`]]: size},
 		{[style[`fst${tsize}`]]: tsize},
 		{[style[`fsd${dsize}`]]: dsize},
+		{[style[`fsd${dsize}`]]: dsize},
+		{[style[`mb${bottom}`]]: bottom},
+		{[style[`mt${top}`]]: top},
 		{[style.bold]: bold},
 		{[style.medium]: medium},
 	);
@@ -45,6 +50,8 @@ Text.protoTypes = {
 	size: PropTypes.number,
 	tsize: PropTypes.number,
 	dsize: PropTypes.number,
+	top: PropTypes.number,
+	bottom: PropTypes.number,
 	className: PropTypes.string,
 	children: PropTypes.oneOfType([
 		PropTypes.string,
