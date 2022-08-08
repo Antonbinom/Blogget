@@ -16,3 +16,4 @@ export const rootReducer = combineReducers({
 });
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(tokenMiddleware, thunk)));
+console.log('store: ', store);
