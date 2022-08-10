@@ -7,7 +7,6 @@ export const commentsRequestAsync = createAsyncThunk(
 	(id, {getState}) => {
 		const token = getState().token.token;
 		if (!token) return;
-
 		return axios(`${URL_API}/comments/${id}`, {
 			headers: {
 				Authorization: `bearer ${token}`,
